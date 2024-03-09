@@ -14,18 +14,30 @@ export class AppComponent {
   count = 0;
   name: string = '';
   username: string = '';
-  displayText:string=''
+  private _privateUserName: string = '';
+  displayText: string = '';
+
+  get privateUserName(): string {
+    return this._privateUserName;
+  }
+  set privateUserName(value: string) {
+    console.log(value)
+    if(value==='rawendra'){
+      alert('Hello rawendra')
+    }
+    this._privateUserName = value;
+  }
 
   incrementCount() {
     this.count = this.count + 1;
   }
-  handleChangeUserName(_username:string) {
-    this.username=_username
+  handleChangeUserName(_username: string) {
+    this.username = _username;
     if (this.username !== '') {
       console.log('user is valid');
-      this.displayText='user is valid'
-    }else{
-      this.displayText=''
+      this.displayText = 'user is valid';
+    } else {
+      this.displayText = '';
     }
   }
 }
