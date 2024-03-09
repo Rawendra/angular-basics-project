@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'my-first-project';
   count = 0;
   name: string = '';
   username: string = '';
   private _privateUserName: string = '';
   displayText: string = '';
-
+  @ViewChild('nameRef') nameElementRef!:ElementRef;
   get privateUserName(): string {
     return this._privateUserName;
   }
@@ -30,6 +30,9 @@ export class AppComponent {
 
   incrementCount() {
     this.count = this.count + 1;
+  }
+  ngAfterViewInit(){
+    this.nameElementRef.nativeElement.focus()
   }
   handleChangeUserName(_username: string) {
     this.username = _username;
