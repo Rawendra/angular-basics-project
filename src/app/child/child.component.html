@@ -1,0 +1,8 @@
+<p>child works!</p>
+<div *ngFor="let item of list">
+  {{ item }}
+</div>
+
+<ng-container *ngFor="let item of list">
+  <p *ngIf="checkItem(item)">{{ item }}</p>
+</ng-container>
