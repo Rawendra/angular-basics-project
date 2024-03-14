@@ -9,6 +9,7 @@ import { ListKey } from './types';
 export class ChildComponent implements OnInit , AfterContentInit,
  AfterContentChecked, OnChanges,
  AfterViewInit, AfterViewChecked{
+  componentValue:string='component deafult value'
   listKey: ListKey = {
     asd: true,
     asdf: false,
@@ -36,5 +37,8 @@ export class ChildComponent implements OnInit , AfterContentInit,
   }
   ngAfterContentChecked(): void {
     console.log('ngAfterContentChecked')
+  }
+  handleInputChange(value:string){
+    console.log('handleInputChange',value)
   }
 }

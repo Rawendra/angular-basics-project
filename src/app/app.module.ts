@@ -1,24 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { components ,angularModules,directives} from './moduleImports';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
-import { SampleDirectiveDirective } from './sample-directive.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ParentComponent,
-    ChildComponent,
-    SampleDirectiveDirective
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [...components, ...directives],
+  imports: [...angularModules],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [components[0]],
 })
-export class AppModule { }
+export class AppModule {}

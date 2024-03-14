@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
   selector: '[appSampleDirective]'
@@ -6,5 +6,7 @@ import { Directive } from '@angular/core';
 export class SampleDirectiveDirective {
 
   constructor() { }
+
+  @HostBinding('value') inputValueDefault='enter the value:directive'
 
 }
