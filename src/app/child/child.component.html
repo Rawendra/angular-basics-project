@@ -1,6 +1,7 @@
 <p>child works!</p>
 
 <h2>User Registration Form</h2>
+<div><span>{{parentDataDetails|json}}</span></div>
 <!-- My Name<input type="text" [(ngModel)]="customerName"  (ngModelChange)="handleCustomerNameChange()"  /> -->
 
 <form [formGroup]="reactiveForm" (ngSubmit)="handleFormSubmit()">

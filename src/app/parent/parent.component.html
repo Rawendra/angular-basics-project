@@ -1,2 +1,5 @@
 <p>parent works!</p>
-<app-child *ngIf="expression"></app-child>
+<div>
+  {{ parentdata | json }}
+</div>
+<app-child [parentDataDetails]="parentdata" *ngIf="expression"></app-child>

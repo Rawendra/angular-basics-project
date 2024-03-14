@@ -4,6 +4,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component,
+  Input,
   OnChanges,
   OnInit,
   SimpleChanges,
@@ -13,12 +14,14 @@ import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { messages as _messages } from './messages';
+import { ParentData } from '../parent/types';
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrl: './child.component.css',
 })
 export class ChildComponent implements OnInit {
+  @Input('parentDataDetails') parentDataDetails: ParentData
   reactiveForm: FormGroup;
   customerName:string=''
   messages = _messages;
