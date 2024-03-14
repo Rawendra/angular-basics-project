@@ -1,4 +1,25 @@
 form{
-  background-color: skyblue;
-  border: 1px solid dodgerblue
+ 
+  border: 1px solid dodgerblue;
+  padding: auto;
+  border: 1px solid lightgray;
+}
+
+.ng-invalid.ng-dirty.form-element{
+ 
+ background-color: rgb(249, 225, 225);
+  border-right: 5px solid red
+}
+
+.submit-button{
+  color: whitesmoke;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: dodgerblue;
+  padding: 5px;
+}
+
+.submit-button:hover{
+  background-color:black
 }

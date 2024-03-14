@@ -1,44 +1,43 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ListKey } from './types';
+import { FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrl: './child.component.css',
 })
-export class ChildComponent implements OnInit , AfterContentInit,
- AfterContentChecked, OnChanges,
- AfterViewInit, AfterViewChecked{
-  componentValue:string='component deafult value'
-  listKey: ListKey = {
-    asd: true,
-    asdf: false,
-    sdf: true,
-  };
-  list: string[] = ['asd', 'asdf', 'sdf'];
-  checkItem(item: string): boolean {
-    return this.listKey.hasOwnProperty(item) && this.listKey[item];
+export class ChildComponent implements OnInit {
+  reactiveForm: FormGroup;
+  handleFormSubmit() {
+    console.log(this.reactiveForm);
   }
-  ngAfterContentInit(): void {
-    console.log('ngAfterContentInit')
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges',changes)
-  } 
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked')
-  }
-  ngOnInit(): void {
-    console.log('ngOnInit');
-  }
- 
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit')
-  }
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked')
-  }
-  handleInputChange(value:string){
-    console.log('handleInputChange',value)
+  ngOnInit() {
+    this.reactiveForm = new FormGroup({
+      firstname: new FormControl(null, [
+        Validators.nullValidator,
+        Validators.maxLength(6),
+      ]),
+      email: new FormControl(null, [
+        Validators.nullValidator,
+        Validators.email,
+      ]),
+      password: new FormControl(null, Validators.nullValidator),
+      confirmedPassword: new FormControl(null),
+      gender: new FormControl(null, Validators.nullValidator),
+      dob: new FormControl(null, Validators.nullValidator),
+      country: new FormControl(null, Validators.nullValidator),
+    });
   }
 }

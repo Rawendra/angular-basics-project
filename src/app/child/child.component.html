@@ -1,39 +1,101 @@
 <p>child works!</p>
 
-
 <h2>User Registration Form</h2>
-<form action="submit_registration.php" method="post">
-  <label for="username">Username:</label><br>
-  <input type="text" id="username" name="username" required><br>
-  
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email" required><br>
-  
-  <label for="password">Password:</label><br>
-  <input type="password" id="password" name="password" required><br>
-  
-  <label for="confirm_password">Confirm Password:</label><br>
-  <input type="password" id="confirm_password" name="confirm_password" required><br>
-  
-  <label for="dob">Date of Birth:</label><br>
-  <input type="date" id="dob" name="dob" required><br>
-  
-  <label for="gender">Gender:</label><br>
-  <input type="radio" id="male" name="gender" value="male" required>
-  <label for="male">Male</label><br>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</label><br>
-  <input type="radio" id="other" name="gender" value="other">
-  <label for="other">Other</label><br>
-  
-  <label for="country">Country:</label><br>
-  <select id="country" name="country" required>
+<form [formGroup]="reactiveForm" (ngSubmit)="handleFormSubmit()">
+  <label for="username">Username:</label><br />
+  <input
+    formControlName="firstname"
+    class="form-element"
+    type="text"
+    id="username"
+    name="username"
+    required
+  /><br />
+
+  <label for="email">Email:</label><br />
+  <input
+    formControlName="email"
+    class="form-element"
+    type="email"
+    id="email"
+    name="email"
+    required
+  /><br />
+
+  <label for="password">Password:</label><br />
+  <input
+    formControlName="password"
+    class="form-element"
+    type="password"
+    id="password"
+    name="password"
+    required
+  /><br />
+
+  <label for="confirm_password">Confirm Password:</label><br />
+  <input
+    class="form-element"
+    formControlName="confirmedPassword"
+    type="password"
+    id="confirm_password"
+    name="confirm_password"
+    required
+  /><br />
+
+  <label for="dob">Date of Birth:</label><br />
+  <input
+    class="form-element"
+    formControlName="dob"
+    type="date"
+    id="dob"
+    name="dob"
+    required
+  /><br />
+
+  <label for="gender">Gender:</label><br />
+  <input
+    class="form-element"
+    formControlName="gender"
+    type="radio"
+    id="male"
+    name="gender"
+    value="male"
+    required
+  />
+  <label for="male">Male</label><br />
+  <input
+    class="form-element"
+    formControlName="gender"
+    type="radio"
+    id="female"
+    name="gender"
+    value="female"
+  />
+  <label for="female">Female</label><br />
+  <input
+    class="form-element"
+    formControlName="gender"
+    type="radio"
+    id="other"
+    name="gender"
+    value="other"
+  />
+  <label for="other">Other</label><br />
+
+  <label for="country">Country:</label><br />
+  <select
+    class="form-element"
+    id="country"
+    name="country"
+    required
+    formControlName="country"
+  >
     <option value="" disabled selected>Select your country</option>
     <option value="USA">United States</option>
     <option value="UK">United Kingdom</option>
     <option value="Canada">Canada</option>
-    <!-- Add more options as needed -->
-  </select><br>
-  
-  <input type="submit" value="Register">
+    <!-- Add more options as needed --></select
+  ><br />
+
+  <input class="submit-button" type="submit" value="Register" />
 </form>
